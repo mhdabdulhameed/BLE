@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		68BD5FD2205D708100AE13E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD5FD1205D708100AE13E6 /* AppDelegate.swift */; };
-		68BD5FD4205D708100AE13E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD5FD3205D708100AE13E6 /* ViewController.swift */; };
+		68BD5FD4205D708100AE13E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD5FD3205D708100AE13E6 /* MainViewController.swift */; };
 		68BD5FD7205D708100AE13E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BD5FD5205D708100AE13E6 /* Main.storyboard */; };
 		68BD5FD9205D708100AE13E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68BD5FD8205D708100AE13E6 /* Assets.xcassets */; };
 		68BD5FDC205D708100AE13E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BD5FDA205D708100AE13E6 /* LaunchScreen.storyboard */; };
+		68BD5FE6205DA17F00AE13E6 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD5FE5205DA17F00AE13E6 /* MainPresenter.swift */; };
+		68BD5FE8205DA4E400AE13E6 /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD5FE7205DA4E400AE13E6 /* MainViewProtocol.swift */; };
+		68BD5FEA205DA50400AE13E6 /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD5FE9205DA50400AE13E6 /* MainPresenterProtocol.swift */; };
+		68BD5FF2205DA7D600AE13E6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD5FF1205DA7D600AE13E6 /* UIViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68BD5FCE205D708100AE13E6 /* BLETask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLETask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BD5FD1205D708100AE13E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68BD5FD3205D708100AE13E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68BD5FD3205D708100AE13E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		68BD5FD6205D708100AE13E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68BD5FD8205D708100AE13E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68BD5FDB205D708100AE13E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68BD5FDD205D708100AE13E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68BD5FE5205DA17F00AE13E6 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		68BD5FE7205DA4E400AE13E6 /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
+		68BD5FE9205DA50400AE13E6 /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
+		68BD5FF1205DA7D600AE13E6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,42 @@
 		68BD5FD0205D708100AE13E6 /* BLETask */ = {
 			isa = PBXGroup;
 			children = (
+				68BD5FF0205DA7C700AE13E6 /* Extensions */,
 				68BD5FD1205D708100AE13E6 /* AppDelegate.swift */,
-				68BD5FD3205D708100AE13E6 /* ViewController.swift */,
+				68BD5FEB205DA51D00AE13E6 /* View */,
+				68BD5FEC205DA53100AE13E6 /* Presenter */,
 				68BD5FD5205D708100AE13E6 /* Main.storyboard */,
 				68BD5FD8205D708100AE13E6 /* Assets.xcassets */,
 				68BD5FDA205D708100AE13E6 /* LaunchScreen.storyboard */,
 				68BD5FDD205D708100AE13E6 /* Info.plist */,
 			);
 			path = BLETask;
+			sourceTree = "<group>";
+		};
+		68BD5FEB205DA51D00AE13E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				68BD5FD3205D708100AE13E6 /* MainViewController.swift */,
+				68BD5FE7205DA4E400AE13E6 /* MainViewProtocol.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		68BD5FEC205DA53100AE13E6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				68BD5FE5205DA17F00AE13E6 /* MainPresenter.swift */,
+				68BD5FE9205DA50400AE13E6 /* MainPresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		68BD5FF0205DA7C700AE13E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				68BD5FF1205DA7D600AE13E6 /* UIViewControllerExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68BD5FD4205D708100AE13E6 /* ViewController.swift in Sources */,
+				68BD5FEA205DA50400AE13E6 /* MainPresenterProtocol.swift in Sources */,
+				68BD5FD4205D708100AE13E6 /* MainViewController.swift in Sources */,
+				68BD5FE6205DA17F00AE13E6 /* MainPresenter.swift in Sources */,
 				68BD5FD2205D708100AE13E6 /* AppDelegate.swift in Sources */,
+				68BD5FF2205DA7D600AE13E6 /* UIViewControllerExtensions.swift in Sources */,
+				68BD5FE8205DA4E400AE13E6 /* MainViewProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E332EG7US;
 				INFOPLIST_FILE = BLETask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.BLETask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E332EG7US;
 				INFOPLIST_FILE = BLETask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.BLETask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
