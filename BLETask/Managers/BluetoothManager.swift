@@ -119,15 +119,24 @@ extension BluetoothManager: CBPeripheralDelegate {
 
             switch characteristic.uuid {
             case readDataCharacteristicCBUUID:
+                /*
+                 * Requirement: Read 0xFFF1. It should be a long string
+                 */
                 peripheral.readValue(for: characteristic)
                 
             case writeDataCharacteristicCBUUID:
+                /*
+                 * Requirement: Write something on 0xFFF3
+                 */
                 let string = "A string to be written to 0xFFF3"
                 if let data = string.data(using: .utf8) {
                     peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
                 }
                 
                 // FIXME: I didn't understand what is required from me to do here
+                /*
+                 * Requirement: Write on 0xFFF3: OPEN1 or OPEN2
+                 */
                 let anotherString = "OPEN1"
                 if let data = anotherString.data(using: .utf8) {
                     peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
@@ -143,6 +152,9 @@ extension BluetoothManager: CBPeripheralDelegate {
         
         switch characteristic.uuid {
         case readDataCharacteristicCBUUID:
+            /*
+             * Requirement: Read 0xFFF1. It should be a long string
+             */
             if let valueOf0xFFF1 = characteristic.value, let valueOf0xFFF1String = String(data: valueOf0xFFF1, encoding: .utf8) {
                 
                 print("Value read from 0xFFF1, which is a long string: \(valueOf0xFFF1String)")
