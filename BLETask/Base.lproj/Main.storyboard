@@ -1,84 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Adc-9e-w8T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PwY-QU-dMW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
-        <scene sceneID="36h-CZ-3Ie">
+        <scene sceneID="f2s-h4-LbJ">
             <objects>
-                <tableViewController id="Adc-9e-w8T" customClass="MainViewController" customModule="BLETask" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="W7q-8y-aZj">
+                <viewController id="PwY-QU-dMW" customClass="MainViewController" customModule="BLETask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="84r-d9-5C9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Configurations" id="fNT-vU-GE7">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="rWM-LN-xpT">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="54"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rWM-LN-xpT" id="3ic-3n-OgK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BLE Device Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZd-g8-gI7">
-                                                    <rect key="frame" x="16" y="11" width="343" height="32"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="FZd-g8-gI7" firstAttribute="leading" secondItem="3ic-3n-OgK" secondAttribute="leadingMargin" id="B4V-fO-SMy"/>
-                                                <constraint firstItem="FZd-g8-gI7" firstAttribute="top" secondItem="3ic-3n-OgK" secondAttribute="topMargin" id="Brw-yT-sYa"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="FZd-g8-gI7" secondAttribute="trailing" id="Ye5-S4-veJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="FZd-g8-gI7" secondAttribute="bottom" id="fd9-TZ-Ghm"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="ztI-TT-XMr">
-                                        <rect key="frame" x="0.0" y="109.5" width="375" height="54"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ztI-TT-XMr" id="HWP-Fd-3uh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S79-xS-MPm">
-                                                    <rect key="frame" x="158" y="11" width="59" height="30"/>
-                                                    <state key="normal" title="Connect"/>
-                                                    <connections>
-                                                        <action selector="connectButtonTapped:" destination="Adc-9e-w8T" eventType="touchUpInside" id="1i5-wu-2RO"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="S79-xS-MPm" firstAttribute="centerY" secondItem="HWP-Fd-3uh" secondAttribute="centerY" id="Dam-YY-SVx"/>
-                                                <constraint firstItem="S79-xS-MPm" firstAttribute="centerX" secondItem="HWP-Fd-3uh" secondAttribute="centerX" id="Ksr-oF-4NF"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="Adc-9e-w8T" id="LXH-R7-qdW"/>
-                            <outlet property="delegate" destination="Adc-9e-w8T" id="PNL-hH-atk"/>
-                        </connections>
-                    </tableView>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BLE Device Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1SP-fX-x6h">
+                                <rect key="frame" x="56.5" y="201" width="262.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qx7-A2-MhK">
+                                <rect key="frame" x="157.5" y="241" width="59" height="30"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connectButtonTapped:" destination="PwY-QU-dMW" eventType="touchUpInside" id="vHR-N7-NEi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="1SP-fX-x6h" secondAttribute="top" multiplier="1.66" id="IIu-cu-QUM"/>
+                            <constraint firstItem="1SP-fX-x6h" firstAttribute="centerX" secondItem="84r-d9-5C9" secondAttribute="centerX" id="Mup-Nf-eJg"/>
+                            <constraint firstItem="1SP-fX-x6h" firstAttribute="width" secondItem="84r-d9-5C9" secondAttribute="width" multiplier="0.7" id="Non-QT-3pd"/>
+                            <constraint firstItem="qx7-A2-MhK" firstAttribute="top" secondItem="1SP-fX-x6h" secondAttribute="bottom" constant="10" id="uCf-Xn-Taz"/>
+                            <constraint firstItem="qx7-A2-MhK" firstAttribute="centerX" secondItem="1SP-fX-x6h" secondAttribute="centerX" id="uZo-Ao-7Kz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zqn-44-81M"/>
+                    </view>
                     <connections>
-                        <outlet property="BLEDeviceNameTextField" destination="FZd-g8-gI7" id="7ue-qw-eI5"/>
+                        <outlet property="BLEDeviceNameTextField" destination="1SP-fX-x6h" id="3Of-aA-n6l"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B7t-fy-0s7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="koM-aL-L6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="127" y="-26"/>
+            <point key="canvasLocation" x="75" y="-116"/>
         </scene>
     </scenes>
 </document>
