@@ -117,7 +117,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         
         for characteristic in characteristics {
 
-            switch characteristic {
+            switch characteristic.uuid {
             case readDataCharacteristicCBUUID:
                 peripheral.readValue(for: characteristic)
                 
@@ -141,7 +141,7 @@ extension BluetoothManager: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
-        switch characteristic {
+        switch characteristic.uuid {
         case readDataCharacteristicCBUUID:
             if let valueOf0xFFF1 = characteristic.value, let valueOf0xFFF1String = String(data: valueOf0xFFF1, encoding: .utf8) {
                 
