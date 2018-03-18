@@ -9,7 +9,7 @@
 import Foundation
 import CoreBluetooth
 
-/// A class to manage communicating with a BLE devices that advertize the following 3 services:
+/// A class to manage communication with a BLE devices that advertise service 0xFFF0 which has the following 3 characterisitcs:
 ///
 /// 0xFFF1: Read data
 ///
@@ -17,6 +17,8 @@ import CoreBluetooth
 ///
 /// 0xFFF4: Write. Start and close communication.
 class BluetoothManager: NSObject {
+    
+    // MARK: - Properties
     
     static let shared = BluetoothManager()
     
@@ -34,6 +36,8 @@ class BluetoothManager: NSObject {
     private let targetedServices: [CBUUID]
     private let targetedCharacteristics: [CBUUID]
     
+    // MARK: - Initialization
+    
     override private init() {
         
         targetedServices = [openLockServiceCBUUID]
@@ -43,6 +47,8 @@ class BluetoothManager: NSObject {
         
         super.init()
     }
+    
+    // MARK: - Utility Methods
     
     /// A method to start searching for peripherals.
     ///
@@ -64,6 +70,8 @@ class BluetoothManager: NSObject {
         centralManager?.connect(peripheral)
     }
 }
+
+// MARK: - CBCentralManagerDelegate Protocol Conformation
 
 extension BluetoothManager: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -91,6 +99,8 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
 }
 
+// MARK: - CBPeripheralDelegate Protocol Conformation
+
 extension BluetoothManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         
@@ -106,7 +116,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         guard let characteristics = service.characteristics else { return }
         
         for characteristic in characteristics {
-//
+
             switch characteristic {
             case readDataCharacteristicCBUUID:
                 peripheral.readValue(for: characteristic)
