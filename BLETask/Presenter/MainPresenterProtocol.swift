@@ -13,5 +13,6 @@ protocol MainPresenterProtocol {
     /// Set or attach the view to this presenter
     func attachView(view: MainViewProtocol)
     
+    /// The action of connect button
     func connectButtonTapped(BLEDeviceName: String?)
 }

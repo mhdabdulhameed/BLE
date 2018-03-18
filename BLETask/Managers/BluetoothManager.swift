@@ -23,16 +23,23 @@ class BluetoothManager: NSObject {
     private var centralManager: CBCentralManager?
     private var targetedBLEDeviceName: String?
     
-    private let readDataServiceCBUUID = CBUUID(string: "0xFFF1")
-    private let writeDataServiceCBUUID = CBUUID(string: "0xFFF3")
-    private let startCloseCommunicationServiceCBUUID = CBUUID(string: "0xFFF4")
+    // Targeted Services
+    private let openLockServiceCBUUID = CBUUID(string: "0xFFF0")
+    
+    // Targeted Characteristics
+    private let readDataCharacteristicCBUUID = CBUUID(string: "0xFFF1")
+    private let writeDataCharacteristicCBUUID = CBUUID(string: "0xFFF3")
+    private let startCloseCommunicationCharacteristicCBUUID = CBUUID(string: "0xFFF4")
     
     private let targetedServices: [CBUUID]
+    private let targetedCharacteristics: [CBUUID]
     
     override private init() {
-        targetedServices = [readDataServiceCBUUID,
-                            writeDataServiceCBUUID,
-                            startCloseCommunicationServiceCBUUID]
+        
+        targetedServices = [openLockServiceCBUUID]
+        targetedCharacteristics = [readDataCharacteristicCBUUID,
+                                   writeDataCharacteristicCBUUID,
+                                   startCloseCommunicationCharacteristicCBUUID]
         
         super.init()
     }
@@ -50,7 +57,7 @@ class BluetoothManager: NSObject {
         // Stop scanning for other devices
         centralManager?.stopScan()
         
-        // Set the delegate of the peripheral
+        // Set the delegate of the peripheral. We need this for discovering services
         peripheral.delegate = self
         
         // Connect to the peripheral
@@ -90,7 +97,7 @@ extension BluetoothManager: CBPeripheralDelegate {
         guard let services = peripheral.services else { return }
         
         for service in services {
-            peripheral.discoverCharacteristics(nil, for: service)
+            peripheral.discoverCharacteristics(targetedCharacteristics, for: service)
         }
     }
     
@@ -99,8 +106,23 @@ extension BluetoothManager: CBPeripheralDelegate {
         guard let characteristics = service.characteristics else { return }
         
         for characteristic in characteristics {
-//            peripheral.writeValue(Data(), for: characteristic, type: .withResponse)
-//            if characteristic.properties.contains(.write)
+//
+            switch characteristic {
+            case readDataCharacteristicCBUUID:
+                peripheral.readValue(for: characteristic)
+            default:
+                break
+            }
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        
+        switch characteristic {
+        case readDataCharacteristicCBUUID:
+            print(characteristic.value ?? "no value")
+        default:
+            break
         }
     }
 }

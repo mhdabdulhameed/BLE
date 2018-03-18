@@ -45,6 +45,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6849E381205EE09F0004D640 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				68BD5FF3205DB66E00AE13E6 /* BluetoothManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		6849E382205EE0B00004D640 /* Skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				68BD5FD1205D708100AE13E6 /* AppDelegate.swift */,
+			);
+			path = Skeleton;
+			sourceTree = "<group>";
+		};
 		68BD5FC5205D708100AE13E6 = {
 			isa = PBXGroup;
 			children = (
@@ -64,8 +80,8 @@
 		68BD5FD0205D708100AE13E6 /* BLETask */ = {
 			isa = PBXGroup;
 			children = (
-				68BD5FD1205D708100AE13E6 /* AppDelegate.swift */,
-				68BD5FF3205DB66E00AE13E6 /* BluetoothManager.swift */,
+				6849E382205EE0B00004D640 /* Skeleton */,
+				6849E381205EE09F0004D640 /* Managers */,
 				68BD5FF0205DA7C700AE13E6 /* Extensions */,
 				68BD5FEB205DA51D00AE13E6 /* View */,
 				68BD5FEC205DA53100AE13E6 /* Presenter */,

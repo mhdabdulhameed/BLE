@@ -22,7 +22,6 @@ class MainPresenter: MainPresenterProtocol {
             return
         }
         
-        print("BLEDeviceName has been entered. Name: \(BLEDeviceName)")
         BluetoothManager.shared.startScan()
     }
 }
